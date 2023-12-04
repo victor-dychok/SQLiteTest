@@ -1,0 +1,45 @@
+﻿<Window x:Class="SQLiteTest.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SQLiteTest"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="RegistrationWindow"
+        Height="250" Width="400">
+    <StackPanel>
+        <TextBox x:Name="nameBox"
+                 Margin="10"
+                 materialDesign:HintAssist.Hint="Введите ФИО"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        <TextBox x:Name="groupBox"
+                 Margin="10"
+                 materialDesign:HintAssist.Hint="Введите группу"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+        <Grid>
+            <Button x:Name="continueButton"
+                    Click="continueButton_Click"
+                    HorizontalAlignment="Left"
+                    Margin="30"
+                    Height="50"
+                    Content="Регистрация"
+                    Width="150" Cursor="Hand"/>
+
+            <Button x:Name="noRegistrationButton"
+                    Click="noRegistrationButton_Click"
+                    HorizontalAlignment="Right"
+                    Margin="30"
+                    Height="50"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    Width="150" Cursor="Hand">
+                <TextBlock 
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    Text="Продолжить без регистрации"/>
+            </Button>
+        </Grid>
+    </StackPanel>
+    
+</Window>

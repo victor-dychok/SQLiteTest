@@ -1,0 +1,63 @@
+﻿<Window x:Class="SQLiteTest.TestWindows.TestResultsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SQLiteTest.TestWindows"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Title="TestResultsWindow" 
+        Height="650" 
+        Width="1000">
+    <StackPanel>
+        <Grid Height="600" VerticalAlignment="Top" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition />
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock x:Name="chartName"
+                   Margin="10"
+                   FontSize="20"/>
+
+
+            <lvc:CartesianChart Name="mainChart" 
+                            Series="{Binding _SeriesCollection}" 
+                            Grid.Row="2"
+                            Margin="20 0"
+                            LegendLocation="Right">
+            </lvc:CartesianChart>
+            <TextBlock x:Name="NoChartBox"
+                       Grid.Row="2"
+                       Margin="30"
+                       FontSize="24"
+                       TextWrapping="Wrap"/>
+
+            <ScrollViewer Grid.Row="1">
+                <TextBlock x:Name="processedResultsBlock"/>
+            </ScrollViewer>
+
+
+            <Button x:Name="saveToExcel"
+                    Click="saveToExcel_Click"
+                    Width="250"
+                    Grid.Row="3"
+                    Height="50"
+                    Content="Сохранить в excel" Cursor="Hand"/>
+            <ScrollViewer   Grid.Column="1"
+                            Grid.RowSpan="4">
+                <TextBlock x:Name="mainTextBlock"
+                       ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            </ScrollViewer>
+        </Grid>
+
+    </StackPanel>
+</Window>
